@@ -34,10 +34,33 @@ while True:
         unicornhathd.set_pixel(i + 1, 4, tree[1][0], tree[1][1], tree[1][2])
         unicornhathd.set_pixel(i + 1, 3, tree[1][0], tree[1][1], tree[1][2])
 
-    # Draw the tree lights
+    # Alternate between drawing and not drawing the tree lights
+    if tree[2][0] == 0 and tree[2][1] == 0 and tree[2][2] == 0:
+        # Draw the tree lights
+        for i in range(3):
+            unicornhathd.set_pixel(i + 1, 2, tree[2][0], tree[2][1], tree[2][2])
+            unicornhathd.set_pixel(i + 1, 1, tree[2][0], tree[2][1], tree[2][2])
+    else:
+        # Don't draw the tree lights
+        for i in range(3):
+            unicornhathd.set_pixel(i + 1, 2, 0, 0, 0)
+            unicornhathd.set_pixel(i + 1, 1, 0, 0, 0)
+
+    # Draw the bottom part of the star
+    unicornhathd.set_pixel(1, 0, tree[2][0], tree[2][1], tree[2][2])
+    unicornhathd.set_pixel(3, 0, tree[2][0], tree[2][1], tree[2][2])
+
+    # Draw additional branches on the tree
     for i in range(3):
         unicornhathd.set_pixel(i + 1, 2, tree[2][0], tree[2][1], tree[2][2])
-        unicornhathd.set_pixel(i + 1, 1, tree[2][0], tree[2][1], tree[2][2])
+        unicornhathd.set_pixel(i + 1, 3, tree[2][0], tree[2][1], tree[2][2])
+
+    unicornhathd.set_pixel(0, 3, tree[1][0], tree[1][1], tree[1][2])
+    unicornhathd.set_pixel(4, 3, tree[1][0], tree[1][1], tree[1][2])
+    unicornhathd.set_pixel(1, 2, tree[1][0], tree[1][1], tree[1][2])
+    unicornhathd.set_pixel(3, 2, tree[1][0], tree[1][1], tree[1][2])
+    unicornhathd.set_pixel(1, 1, tree[1][0], tree[1][1], tree[1][2])
+    unicornhathd.set_pixel(3, 1, tree[1][0], tree[1][1], tree[1][2])
 
     # Draw the star on top
     unicornhathd.set_pixel(2, 0, tree[3][0], tree[3][1], tree[3][2])
