@@ -8,9 +8,9 @@ unicornhathd.brightness(0.75)
 
 # Set the initial colors for the tree
 tree = [
-    (0, 100, 0),    # green for the tree base
-    (0, 255, 0),    # bright green for the tree trunk
-    (255, 0, 0),    # red for the tree lights
+    (0, 100, 0),  # green for the tree base
+    (0, 255, 0),  # bright green for the tree trunk
+    (255, 0, 0),  # red for the tree lights
     (255, 255, 0),  # yellow for the star on top
 ]
 
@@ -22,16 +22,26 @@ while True:
 
     # Draw the tree on the UnicornHathd
     unicornhathd.clear()
-    unicornhathd.set_pixel(1, 6, tree[0][0], tree[0][1], tree[0][2])
-    unicornhathd.set_pixel(2, 6, tree[0][0], tree[0][1], tree[0][2])
-    unicornhathd.set_pixel(3, 6, tree[0][0], tree[0][1], tree[0][2])
-    unicornhathd.set_pixel(2, 5, tree[1][0], tree[1][1], tree[1][2])
-    unicornhathd.set_pixel(2, 4, tree[1][0], tree[1][1], tree[1][2])
-    unicornhathd.set_pixel(2, 3, tree[1][0], tree[1][1], tree[1][2])
-    unicornhathd.set_pixel(1, 2, tree[2][0], tree[2][1], tree[2][2])
-    unicornhathd.set_pixel(2, 2, tree[2][0], tree[2][1], tree[2][2])
-    unicornhathd.set_pixel(3, 2, tree[2][0], tree[2][1], tree[2][2])
-    unicornhathd.set_pixel(2, 1, tree[3][0], tree[3][1], tree[3][2])
+
+    # Draw the tree base
+    for i in range(5):
+        for j in range(5):
+            unicornhathd.set_pixel(i, 6, tree[0][0], tree[0][1], tree[0][2])
+
+    # Draw the tree trunk
+    for i in range(3):
+        unicornhathd.set_pixel(i + 1, 5, tree[1][0], tree[1][1], tree[1][2])
+        unicornhathd.set_pixel(i + 1, 4, tree[1][0], tree[1][1], tree[1][2])
+        unicornhathd.set_pixel(i + 1, 3, tree[1][0], tree[1][1], tree[1][2])
+
+    # Draw the tree lights
+    for i in range(3):
+        unicornhathd.set_pixel(i + 1, 2, tree[2][0], tree[2][1], tree[2][2])
+        unicornhathd.set_pixel(i + 1, 1, tree[2][0], tree[2][1], tree[2][2])
+
+    # Draw the star on top
+    unicornhathd.set_pixel(2, 0, tree[3][0], tree[3][1], tree[3][2])
+
     unicornhathd.show()
 
     # Pause for a moment before updating the colors again
