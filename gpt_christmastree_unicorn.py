@@ -34,6 +34,10 @@ while True:
         unicornhathd.set_pixel(i + 1, 4, tree_colors[1][0], tree_colors[1][1], tree_colors[1][2])
         unicornhathd.set_pixel(i + 1, 3, tree_colors[1][0], tree_colors[1][1], tree_colors[1][2])
 
+    # Draw a pointed top for the tree
+    unicornhathd.set_pixel(1, 2, tree_colors[1][0], tree_colors[1][1], tree_colors[1][2])
+    unicornhathd.set_pixel(3, 2, tree_colors[1][0], tree_colors[1][1], tree_colors[1][2])
+
     # Alternate between drawing and not drawing the tree lights
     if tree_colors[2][0] == 0 and tree_colors[2][1] == 0 and tree_colors[2][2] == 0:
         # Draw the tree lights
@@ -50,10 +54,10 @@ while True:
     unicornhathd.set_pixel(1, 0, tree_colors[2][0], tree_colors[2][1], tree_colors[2][2])
     unicornhathd.set_pixel(3, 0, tree_colors[2][0], tree_colors[2][1], tree_colors[2][2])
 
-    # Draw additional branches on the tree
-    for i in range(3):
-        unicornhathd.set_pixel(i + 1, 2, tree_colors[2][0], tree_colors[2][1], tree_colors[2][2])
-        unicornhathd.set_pixel(i + 1, 3, tree_colors[2][0], tree_colors[2][1], tree_colors[2][2])
+    # # Draw additional branches on the tree
+    for i in range(5):  # changed the range to 5 instead of 3
+        unicornhathd.set_pixel(i, 2, tree_colors[2][0], tree_colors[2][1], tree_colors[2][2])
+        unicornhathd.set_pixel(i, 3, tree_colors[2][0], tree_colors[2][1], tree_colors[2][2])
 
     unicornhathd.set_pixel(0, 3, tree_colors[1][0], tree_colors[1][1], tree_colors[1][2])
     unicornhathd.set_pixel(4, 3, tree_colors[1][0], tree_colors[1][1], tree_colors[1][2])
